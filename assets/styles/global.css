@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    @media(min-width: 1024px){
+        font-size: clamp(14px, 1.11vw, 16px );
+    }
+}
+
+html{
+    scroll-padding-top: 8rem;
+}
+
+/* Fonts */
+
+@font-face {
+    font-family: 'PKiko';
+    src: url('/fonts/PKiko-Regular.woff2') format('woff2'),
+        url('/fonts/PKiko-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PKiko';
+    src: url('/fonts/PKiko-RegularItalic.woff2') format('woff2'),
+        url('/fonts/PKiko-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PPNeue Book';
+    src: url('/fonts/PPNeueMontreal-Book.woff2') format('woff2'),
+        url('/fonts/PPNeueMontreal-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'PPNeue Book';
+    src: url('/fonts/PPNeueMontreal-BookItalic.woff2') format('woff2'),
+        url('/fonts/PPNeueMontreal-BookItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PPNeue';
+    src: url('/fonts/PPNeueMontreal-Regular.woff2') format('woff2'),
+        url('/fonts/PPNeueMontreal-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PPNeue';
+    src: url('/fonts/PPNeueMontreal-Italic.woff2') format('woff2'),
+        url('/fonts/PPNeueMontreal-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+.not-scrollbar::-webkit-scrollbar{
+    display: none;
+}
+@media(min-width: 1024px){
+    .not-scrollbar-lg::-webkit-scrollbar{
+        display: none;
+    }
+}
+
+.text-LM02{
+    font-family: monospace;
+}
+
+html{
+    scrollbar-gutter: stable;
+}
+
+html:has(body.poster___en) footer,
+html:has(body.poster___es) footer,
+html:has(body.poster-id___en) footer,
+html:has(body.poster-id___es) footer{
+    display: none;
+}
+
