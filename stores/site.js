@@ -1,11 +1,12 @@
 import { defineStore } from 'pinia'
-const siteUrl = process.env.NUXT_PUBLIC_SITE_URL
-const API = process.env.API
+import { useRuntimeConfig } from '#app'
+
 export const useSiteStore = defineStore('site', {
   state: () => {
+    const config = useRuntimeConfig()
     return {
-      api: API,
-      url: siteUrl,
+      api: config.public.api,
+      url: config.public.siteUrl,
       overflowHidden: false,
     }
   },
