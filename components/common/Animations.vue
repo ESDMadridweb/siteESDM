@@ -1,40 +1,8 @@
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { useSiteStore } from '@/stores/site';
 
-const items = [
-  {
-    image: 'ladrillo.png',
-    width: '50%',
-    topStart: '-25%',
-    leftStart: '100%',
-    topEnd: '100%',
-    leftEnd: '-100%'
-  },
-  {
-    image: 'ladrillo.png',
-    width: '50%',
-    topStart: '-25%',
-    leftStart: '-50%',
-    topEnd: '100%',
-    leftEnd: '100%'
-  },
-  {
-    image: 'ladrillo.png',
-    width: '50%',
-    topStart: '100%',
-    leftStart: '-50%',
-    topEnd: '-25%',
-    leftEnd: '100%'
-  },
-  {
-    image: 'ladrillo.png',
-    width: '50%',
-    topStart: '100%',
-    leftStart: '50%',
-    topEnd: '-25%',
-    leftEnd: '-50%'
-  },
-]
+const siteStore = useSiteStore()
+const { data: data } = await useFetch(`${siteStore.api}/get-animations`)
 
 const activeItem = ref(null)
 const route = useRoute()
@@ -45,9 +13,9 @@ const animateRandomItem = async () => {
 
     if(!route.name.startsWith('index')) return
     if(isAnimating.value) return
-
-    const randomIndex = Math.floor(Math.random() * items.length)
-    activeItem.value = { ...items[randomIndex], id: Date.now() }
+    
+    const randomIndex = Math.floor(Math.random() * data?.value?.items?.length)
+    activeItem.value = { ...data?.value?.items[randomIndex], id: Date.now() }
     isAnimating.value = true
     setTimeout(() => {
         isAnimating.value = false
@@ -77,14 +45,15 @@ onMounted(() => {
       <img 
         v-if="activeItem"
         :key="activeItem.id"
-        class="absolute animate-fly"
+        class="absolute animate-fly w-[var(--width)]"
         :src="activeItem.image"
         :width="activeItem.width"
         :style="{
-          '--leftStart': activeItem.leftStart,
-          '--leftEnd': activeItem.leftEnd,
-          '--topStart': activeItem.topStart,
-          '--topEnd': activeItem.topEnd
+          '--width': activeItem?.width + '%',
+          '--leftStart': activeItem.leftstart + '%',
+          '--leftEnd': activeItem.leftend + '%',
+          '--topStart': activeItem.topstart + '%',
+          '--topEnd': activeItem.topend + '%'
         }"
       >
     </transition>
