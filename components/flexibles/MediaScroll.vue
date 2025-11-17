@@ -42,15 +42,12 @@
     
 </template>
 <script setup>
-import gsap from 'gsap';
-
 const props = defineProps({
     block: Object,
 })
 
 const video = ref(null)
 const wrapper = ref(null)
-let animation = null;
 
 const isMuted = ref(true)
 
@@ -60,25 +57,4 @@ const handleMuted = () => {
         isMuted.value = video.value.muted
     }
 }
-
-onMounted(() => {
-    animation = gsap.to(wrapper.value, {
-        width: '100%',
-        scrollTrigger: {
-            trigger: wrapper.value,
-            start: `${(window.innerWidth >= 1024) ? 'bottom+=40' : 'bottom+=200' } bottom`,
-            end: `+=${(window.innerWidth >= 1024) ? '1000' : '600' }`,
-            scrub: true,
-        },
-    });
-})
-
-onBeforeUnmount(() => {
-  if (animation?.scrollTrigger) {
-    animation.scrollTrigger.kill()
-  }
-  animation?.kill()
-})
-
-
 </script>

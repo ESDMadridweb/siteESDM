@@ -16,7 +16,6 @@ import { useMenuStore } from '../../stores/menu';
 import { useSiteStore } from './stores/site';
 
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import Lenis from 'lenis'
 let lenis = null
@@ -42,7 +41,6 @@ const previousRouteStore = usePreviousRouteStore()
 
 onMounted(() => {
     initSmoothScroll()
-    gsap.registerPlugin(ScrollTrigger)
 })
 
 const cursorStore = useCursorStore()
@@ -98,35 +96,7 @@ useHead({
         },
         {
             rel: 'preload',
-            href: '/fonts/PKiko-RegularItalic.woff2',
-            crossorigin: '',
-            as: 'font',
-            type: 'font/woff2',
-        },
-        {
-            rel: 'preload',
             href: '/fonts/PPNeueMontreal-Book.woff2',
-            crossorigin: '',
-            as: 'font',
-            type: 'font/woff2',
-        },
-        {
-            rel: 'preload',
-            href: '/fonts/PPNeueMontreal-BookItalic.woff2',
-            crossorigin: '',
-            as: 'font',
-            type: 'font/woff2',
-        },
-        {
-            rel: 'preload',
-            href: '/fonts/PPNeueMontreal-Regular.woff2',
-            crossorigin: '',
-            as: 'font',
-            type: 'font/woff2',
-        },
-        {
-            rel: 'preload',
-            href: '/fonts/PPNeueMontreal-Italic.woff2',
             crossorigin: '',
             as: 'font',
             type: 'font/woff2',

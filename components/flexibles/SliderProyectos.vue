@@ -24,7 +24,7 @@
                 "
             >
                 <div>
-                    <img 
+                    <CommonImage
                         :src="proyecto?.data?.image" 
                         :alt="proyecto?.data?.titulo" 
                         class="max-w-[70vw] lg:max-w-full w-auto h-full object-contain"
@@ -33,7 +33,7 @@
                             'max-h-[400px]' : index % 3 == 1,
                             'max-h-[320px]' : index % 3 == 2,
                         }"
-                    >
+                    />
                 </div>
             </div>
         </CommonWrapperScrollHorizontal>
@@ -55,11 +55,11 @@
                     "
                 >
                     <div>
-                        <img 
+                        <CommonImage
                             :src="proyecto?.data?.image" 
                             :alt="proyecto?.data?.titulo" 
                             class="w-auto h-full object-contain"
-                        >
+                        />
                     </div>
                 </div>
             </div>
@@ -136,7 +136,6 @@ const initSwiper = () => {
     swiper = new Swiper(swiperContainer.value, {
         modules: [FreeMode],
         slidesPerView: "auto",
-        loop: true,
         freeMode: true,
         speed: 1500,
     })

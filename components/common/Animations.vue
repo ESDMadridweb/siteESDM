@@ -48,6 +48,7 @@ onMounted(() => {
         class="absolute animate-fly w-[var(--width)]"
         :src="activeItem.image"
         :width="activeItem.width"
+        alt="transition"
         :style="{
           '--width': activeItem?.width + '%',
           '--leftStart': activeItem.leftstart + '%',
