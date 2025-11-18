@@ -70,8 +70,8 @@ let ticking = false;
 
 const updateWidth = () => {
     const scroll = window.scrollY
-    const clamped = Math.min(Math.max(scroll, 0), maxScroll)
-    currentWidth.value = map(clamped, 0, maxScroll, minWidth, maxWidth)
+    const clamped = Math.min(Math.max(scroll, 0), maxScroll.value)
+    currentWidth.value = map(clamped, 0, maxScroll.value, minWidth.value, maxWidth.value)
     ticking = false
 }
 
