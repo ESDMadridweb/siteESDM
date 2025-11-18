@@ -1,6 +1,6 @@
 import { useSiteStore } from '@/stores/site'
 
-export function useSeoObject(title, description, image = null) {
+export function useSeoObject(seo) {
     
     const route = useRoute()
     const site = useSiteStore()
@@ -24,11 +24,11 @@ export function useSeoObject(title, description, image = null) {
         ],
     }))
     const seoMeta = {
-        title:  ((title) ? `${title} - ` : null) + 'ESD Madrid',
-        ogTitle: title,
-        description: description,
-        ogDescription: description,
-        ogImage: image,
+        title:  ((seo?.title) ? `${seo?.title} - ` : null) + 'ESD Madrid',
+        ogTitle: seo?.title,
+        description: seo?.description,
+        ogDescription: seo?.description,
+        ogImage: seo?.featuredImage,
     }
     useSeoMeta(seoMeta)
 }

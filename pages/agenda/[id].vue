@@ -21,7 +21,7 @@ const route = useRoute()
 const load = ref(false)
 
 const { data: pageData } = await useFetch(`${siteStore.api}/get-agenda/${route.params.id}?lang=${locale.value}`)
-
+console.log(pageData?.value)
 onBeforeRouteLeave((to, from, next) => {
     load.value = false;
     setTimeout(() => {
@@ -40,10 +40,7 @@ onMounted(() => {
     }, 100); 
 })
 
-useSeoObject(
-    pageData?.value?.title,
-    'Escuela Superior de Diseño Madrid',
-)
+useSeoObject(pageData?.value?.seo)
 
 </script>
 <style scoped>

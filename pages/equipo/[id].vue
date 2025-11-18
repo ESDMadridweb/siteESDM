@@ -40,9 +40,6 @@ onMounted(() => {
     }, 100); 
 })
 
-useSeoObject(
-    pageData?.value?.title,
-    'Escuela Superior de Diseño Madrid',
-)
+useSeoObject(pageData?.value?.seo)
 
 </script>

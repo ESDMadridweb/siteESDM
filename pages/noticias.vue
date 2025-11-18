@@ -45,6 +45,7 @@ const siteStore = useSiteStore()
 
 const { locale } = useI18n()
 const { data: newsData } = await useFetch(`${siteStore.api}/get-news?lang=${locale.value}`)
+const { data: newsPageData} = await useFetch(`${siteStore.api}/get-archive?type=noticias&lang=${locale.value}`)
 
 const categorySelected = ref('')
 const cursorStore = useCursorStore()
@@ -63,7 +64,5 @@ onUnmounted(() => {
     cursorStore.text = '';
 })
 
-watchEffect(() => {
-    useSeoObject(title.value, 'Escuela Superior de Diseño Madrid')
-})
+useSeoObject(newsPageData?.value?.seo)
 </script>

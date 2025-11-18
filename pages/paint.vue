@@ -55,6 +55,7 @@ const { locale } = useI18n()
 
 const { data: siteSettingsDataES } = await useFetch(`${siteStore.api}/get-site-settings?lang=es`)
 const { data: siteSettingsDataEN } = await useFetch(`${siteStore.api}/get-site-settings?lang=en`)
+const { data: paintPageData } = await useFetch(`${siteStore.api}/get-archive?type=paint&lang=${locale.value}`)
 
 const showSuccessfull = ref(false)
 const messageSuccessfull = computed(() => {
@@ -139,8 +140,6 @@ useHead({
     },
 })
 
-watchEffect(() => {
-    useSeoObject(title.value, 'Escuela Superior de Diseño Madrid')
-})
+useSeoObject(paintPageData?.value?.seo)
 </script>
 

@@ -39,6 +39,7 @@ const siteStore = useSiteStore()
 
 const { locale } = useI18n()
 const { data: posterData } = await useFetch(`${siteStore.api}/get-poster?lang=${locale.value}`)
+const { data: posterPageData} = await useFetch(`${siteStore.api}/get-archive?type=poster&lang=${locale.value}`)
 const mode = ref('Galeria')
 
 const openFilters = ref(false)
@@ -84,7 +85,5 @@ useHead({
     },
 })
 
-watchEffect(() => {
-    useSeoObject(title.value, 'Escuela Superior de Diseño Madrid')
-})
+useSeoObject(posterPageData?.value?.seo)
 </script>

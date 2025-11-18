@@ -51,6 +51,7 @@ const siteStore = useSiteStore()
 const cursorStore = useCursorStore()
 const { locale } = useI18n()
 const { data: agendaData } = await useFetch(`${siteStore.api}/get-agendas?lang=${locale.value}`)
+const { data: agendaPageData} = await useFetch(`${siteStore.api}/get-archive?type=agenda&lang=${locale.value}`)
 
 const title = computed(() => (locale.value === 'es' ? 'Agenda' : 'Calendar'))
 const Ver = computed(() => (locale.value === 'es' ? 'Ver' : 'See'))
@@ -95,9 +96,7 @@ useHead({
     },
 })
 
-watchEffect(() => {
-    useSeoObject(title.value, 'Escuela Superior de Diseño Madrid')
-})
+useSeoObject(agendaPageData?.value?.seo)
 </script>
 
 <style>

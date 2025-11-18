@@ -39,6 +39,7 @@ const siteStore = useSiteStore()
 
 const { locale } = useI18n()
 const { data: teamData } = await useFetch(`${siteStore.api}/get-team?lang=${locale.value}`)
+const { data: teamPageData} = await useFetch(`${siteStore.api}/get-archive?type=equipo&lang=${locale.value}`)
 
 const title = computed(() => (locale.value === 'es' ? 'Equipo' : 'Team'))
 const close = computed(() => (locale.value === 'es' ? 'Cerrar' : 'Close'))
@@ -57,7 +58,5 @@ useHead({
     },
 })
 
-watchEffect(() => {
-    useSeoObject(title.value, 'Escuela Superior de Diseño Madrid')
-})
+useSeoObject(teamPageData?.value?.seo)
 </script>
