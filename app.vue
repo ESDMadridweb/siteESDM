@@ -94,14 +94,6 @@ useHead({
             as: 'font',
             type: 'font/woff2',
         },
-        {
-            rel: 'preload',
-            href: '/fonts/PPNeueMontreal-Book.woff2',
-            crossorigin: '',
-            as: 'font',
-            type: 'font/woff2',
-        },
-
     ]
 })
 </script>

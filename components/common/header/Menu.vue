@@ -1,5 +1,5 @@
 <template>
-    <div ref="containerMenu" data-lenis-prevent  class="col-span-1 h-fit lg:h-auto lg:col-span-3 px-3 lg:px-6 lg:overflow-y-auto not-scrollbar">
+    <menu ref="containerMenu" data-lenis-prevent  class="col-span-1 h-fit lg:h-auto lg:col-span-3 px-3 lg:px-6 lg:overflow-y-auto not-scrollbar">
         <template v-for="(item, index) in menu">
             <template v-if="item?.slug == 'only-parent'">
                 <div :data-index="index" class="container-item font-book border-b border-[#04040680] py-4 lg:py-3 w-full flex flex-wrap justify-between items-center select-none cursor-pointer" :class="{ 'border-t' : index == 0 }">
@@ -37,7 +37,7 @@
                 </li>
             </template>
         </template>
-    </div>
+    </menu>
 </template>
 <script setup>
 
