@@ -39,7 +39,6 @@
             </div>
         </div>
     </div>
-    
 </template>
 <script setup>
 const props = defineProps({
@@ -58,10 +57,10 @@ const handleMuted = () => {
     }
 }
 
-const maxScroll = (window.innerWidth >= 1024) ? 500 : 200;
-const minWidth = (window.innerWidth >= 1024) ? 25 : 50;
-const maxWidth = (window.innerWidth >= 1024) ? 80 : 100;
-const currentWidth = ref((window.innerWidth >= 1024) ? 25 : 50)
+const maxScroll = ref(500)
+const minWidth = ref(25)
+const maxWidth = ref(80)
+const currentWidth = ref(25)
 
 function map(x, a1, a2, b1, b2){
     return ((x - a1) * (b2 - b1)) / (a2 - a1) + b1;
@@ -84,6 +83,14 @@ const onScroll = () => {
 }
 
 onMounted(() => {
+
+    const w = window.innerWidth
+
+    maxScroll.value = w >= 1024 ? 500 : 200
+    minWidth.value  = w >= 1024 ? 25 : 50
+    maxWidth.value  = w >= 1024 ? 80 : 100
+    currentWidth.value = minWidth.value
+
     window.addEventListener('scroll', onScroll)
 })
 
