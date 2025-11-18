@@ -14,12 +14,12 @@
         <div ref="swiperContainer" class="swiper h-[480px] lg:h-[648px]">
             <div class="swiper-wrapper h-full">
                 <div class="swiper-slide !w-fit h-full" v-for="(slide, index) in block?.imagenes" :class="{ 'pl-[10px]' : index != 0 }">
-                    <img 
+                    <CommonImage
                         width="1920"
                         class="h-full w-auto"
                         :src="slide?.sizes?.large" 
                         :alt="slide?.alt"
-                    >
+                    />
                 </div>
             </div>
         </div>

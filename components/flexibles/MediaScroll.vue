@@ -1,6 +1,6 @@
 <template>
     <div class="w-full">
-        <div ref="wrapper" class="p-3 lg:p-6" :style="{ width: currentWidth + '%' }">
+        <div ref="wrapper" class="p-3 lg:p-6 w-[var(--wMob)] lg:w-[var(--w)]" :style="{ '--w': currentWidth + '%', '--wMob': currentWidthMobile + '%' }">
             <div class="relative w-fit">
                 <video 
                     v-if="block?.video" 
@@ -15,13 +15,13 @@
                     :poster="block?.imagen?.sizes?.large"
                 >
                 </video>
-                <img
+                <CommonImage
                     v-else
                     :src="block?.imagen?.sizes?.large" 
                     :alt="block?.imagen?.alt" 
                     width="1920"
                     class="w-full max-h-[calc(100svh-4rem)] object-contain object-left"
-                >
+                />
                 <div v-if="video" class="absolute bottom-0 right-0 p-2 cursor-pointer m-1 bg-black/30 rounded-full backdrop-blur-sm" @click="handleMuted()">
                     <svg v-if="!isMuted" class="w-8 h-8 fill-white" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg">
                         <path d="M232,416a23.88,23.88,0,0,1-14.2-4.68,8.27,8.27,0,0,1-.66-.51L125.76,336H56a24,24,0,0,1-24-24V200a24,24,0,0,1,24-24h69.75l91.37-74.81a8.27,8.27,0,0,1,.66-.51A24,24,0,0,1,256,120V392a24,24,0,0,1-24,24ZM125.82,336Zm-.27-159.86Z"/><path d="M320,336a16,16,0,0,1-14.29-23.19c9.49-18.87,14.3-38,14.3-56.81,0-19.38-4.66-37.94-14.25-56.73a16,16,0,0,1,28.5-14.54C346.19,208.12,352,231.44,352,256c0,23.86-6,47.81-17.7,71.19A16,16,0,0,1,320,336Z"/>
@@ -62,6 +62,11 @@ const minWidth = ref(25)
 const maxWidth = ref(80)
 const currentWidth = ref(25)
 
+const maxScrollMobile = ref(200)
+const minWidthMobile = ref(50)
+const maxWidthMobile = ref(100)
+const currentWidthMobile = ref(50)
+
 function map(x, a1, a2, b1, b2){
     return ((x - a1) * (b2 - b1)) / (a2 - a1) + b1;
 }
@@ -71,7 +76,9 @@ let ticking = false;
 const updateWidth = () => {
     const scroll = window.scrollY
     const clamped = Math.min(Math.max(scroll, 0), maxScroll.value)
+    const clampedMobile = Math.min(Math.max(scroll, 0), maxScrollMobile.value)
     currentWidth.value = map(clamped, 0, maxScroll.value, minWidth.value, maxWidth.value)
+    currentWidthMobile.value = map(clampedMobile, 0, maxScrollMobile.value, minWidthMobile.value, maxWidthMobile.value)
     ticking = false
 }
 
@@ -83,14 +90,6 @@ const onScroll = () => {
 }
 
 onMounted(() => {
-
-    const w = window.innerWidth
-
-    maxScroll.value = w >= 1024 ? 500 : 200
-    minWidth.value  = w >= 1024 ? 25 : 50
-    maxWidth.value  = w >= 1024 ? 80 : 100
-    currentWidth.value = minWidth.value
-
     window.addEventListener('scroll', onScroll)
 })
 

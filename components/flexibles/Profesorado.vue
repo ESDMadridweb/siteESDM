@@ -6,12 +6,12 @@
             <div v-for="item in block?.profesorado" class="group text-BO3 relative cursor-pointer" @click="handleData(item?.data)">
                 <h3 class="group-hover:text-blue transition-colors duration-300 ease-in-out">{{ item?.data?.title }}</h3>
                 <h4 class="text-g4 group-hover:text-blue transition-colors duration-300 ease-in-out">{{ item?.cargo }}</h4>
-                <img 
+                <CommonImage
                     class="hidden lg:block absolute right-0 -top-20 w-40 h-60 group-hover:!opacity-100 object-cover opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none"
                     width="480"
                     :src="item?.data?.image" 
                     :alt="item?.data?.title"
-                >
+                />
             </div>
         </div>
 

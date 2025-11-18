@@ -8,12 +8,12 @@
                     <CommonLink v-for="(estudio, index) in grupo?.estudios" :to="estudio?.slug" :type="estudio?.type">
                         <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 px-3 lg:px-6 py-6 lg:py-4 group hover:bg-blue transition-colors duration-500 ease-in-out" :class="{ 'border-t border-g3' : index != 0 }">
                             <div class="hidden lg:block col-span-1">
-                                <img 
+                                <CommonImage 
                                     class="w-full aspect-[1/1.17] object-cover object-center"
                                     width="360"
                                     :src="estudio?.image" 
                                     :alt="estudio?.titulo"
-                                >
+                                />
                             </div>
                             <h3 class="lg:col-span-5 text-T04 lg:text-T03 w-3/4 lg:w-full font-book">{{ estudio?.titulo }}</h3>
                             <div class="lg:col-span-5 text-BO3 lg:text-T06 max-w-[610px]" v-html="estudio?.description" />

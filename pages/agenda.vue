@@ -27,12 +27,12 @@
                         </div>
                     </div>
                     <div v-html="item?.content" class="hidden lg:block text-BO4 w-full max-w-[455px]" />
-                    <img 
+                    <CommonImage
                         width="100"
                         class="aspect-[1/1.3] object-cover object-center"
                         :src="item?.image" 
                         :alt="item?.title"
-                    >
+                    />
                 </NuxtLink>
                 <span v-if="index == agendaData?.agendas.length - 1" class="w-full bg-g3 h-[1px] transition-colors duration-300 ease-in-out"></span>
             </template>

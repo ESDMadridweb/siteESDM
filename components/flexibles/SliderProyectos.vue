@@ -27,7 +27,7 @@
                     <CommonImage
                         :src="proyecto?.data?.image" 
                         :alt="proyecto?.data?.titulo" 
-                        class="max-w-[70vw] lg:max-w-full w-auto h-full object-contain"
+                        class="max-w-[70vw] lg:max-w-full w-auto h-full object-contain cursor-pointer"
                         :class="{
                             'max-h-[480px]' : index % 3 == 0,
                             'max-h-[400px]' : index % 3 == 1,

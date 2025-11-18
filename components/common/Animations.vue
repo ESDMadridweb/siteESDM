@@ -42,7 +42,7 @@ onMounted(() => {
 <template>
   <div class="fixed top-0 left-0 w-full h-screen pointer-events-none overflow-hidden">
     <transition name="fly">
-      <img 
+      <CommonImage
         v-if="activeItem"
         :key="activeItem.id"
         class="absolute animate-fly w-[var(--width)]"
@@ -56,7 +56,7 @@ onMounted(() => {
           '--topStart': activeItem.topstart + '%',
           '--topEnd': activeItem.topend + '%'
         }"
-      >
+      />
     </transition>
   </div>
 </template>

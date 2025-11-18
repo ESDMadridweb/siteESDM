@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink :to="getLinkUrl">
+    <NuxtLink :to="getLinkUrl" :aria-label="linkAriaLabel" :target="target">
         <slot />
     </NuxtLink>
 </template>
@@ -8,6 +8,7 @@ const props = defineProps({
     to: String,
     target: String,
     type: String,
+    ariaLabel: String,
 })
 
 const { locale } = useI18n()
@@ -37,6 +38,8 @@ const getLinkUrl = computed(() => {
     }
 
     switch(props.type){
+        case 'home':
+            return `${language.value}`
         case 'page':
             return `${language.value}${props.to}`
         case 'grado':
@@ -49,5 +52,25 @@ const getLinkUrl = computed(() => {
             return `${language.value}${props.to}`
     }
 })
+
+const linkAriaLabel = computed(() => {
+    // Si se pasa ariaLabel explícitamente, lo usamos
+    if (props.ariaLabel) return props.ariaLabel
+
+    // Si no, generamos uno basado en type y to
+    switch(props.type){
+        case 'page':
+            return `Ir a la página ${props.to}`
+        case 'grado':
+            return `Ir al grado ${props.to}`
+        case 'master':
+            return `Ir al máster ${props.to}`
+        case 'agenda':
+            return `Ir a la agenda ${props.to}`
+        default:
+            return `Ir a ${props.to}`
+    }
+})
+
 
 </script>

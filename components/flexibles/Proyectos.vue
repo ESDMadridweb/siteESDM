@@ -16,12 +16,12 @@
                         cursorStore.text = '';
                     "
                 >
-                    <img 
+                    <CommonImage
                         width="1024"
                         class="w-full object-contain"
                         :src="item?.data?.image" 
                         :alt="item?.data?.title"
-                    >
+                    />
                     <h3 class="text-BO4">{{ item?.data?.content?.autor }} · {{ item?.data?.title }}</h3>
                 </div>
             </template>
@@ -37,12 +37,12 @@
                             class="swiper-slide !flex flex-col gap-2 cursor-pointer" 
                             :class="{ 'pr-[10px]' : index != block?.proyectos.length - 1}"
                         >
-                            <img 
+                            <CommonImage
                                 width="1024"
                                 class="w-full object-contain"
                                 :src="item?.data?.image" 
                                 :alt="item?.data?.title"
-                            >
+                            />
                             <h3 class="text-L02">{{ item?.data?.content?.autor }} · {{ item?.data?.title }}</h3>
                         </div>
                     </div>

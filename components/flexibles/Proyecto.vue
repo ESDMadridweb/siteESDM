@@ -27,13 +27,13 @@
             </div>
         </div>
         <div class="flex flex-col gap-5 my-9 px-3 lg:px-6">
-            <img 
+            <CommonImage
                 v-for="image in blocks?.galeria"
                 class="w-full h-auto object-contain"
                 width="1920"
                 :src="image?.url" 
                 :alt="image?.alt"
-            >
+            />
         </div>
     </div>
 </template>

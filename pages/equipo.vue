@@ -8,12 +8,12 @@
             >
                 <div class="text-BO4 cursor-pointer pointer-events-auto">
                     <template v-if="member?.image">
-                        <img 
+                        <CommonImage
                             class="w-full aspect-[1/1.26] mb-2"
                             width="360"
                             :src="member?.image" 
                             :alt="member?.title"
-                        >
+                        />
                     </template>
                     <template v-else>
                         <div class="w-full aspect-[1/1.26] mb-2 bg-lila py-3 px-4 flex items-end">

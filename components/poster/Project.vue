@@ -10,7 +10,7 @@
         }"
     >
         <template v-if="post?.tipo[0]?.slug == 'proyectos'">
-            <img 
+            <CommonImage
                 width="1024"
                 class="w-auto object-contain"
                 :class="{ 
@@ -31,7 +31,7 @@
                     cursorStore.title = '';
                     cursorStore.subtitle = '';
                 "
-            >
+            />
         </template>
         <template v-else>
             <div class="bg-green p-3 flex flex-col justify-between w-full h-full transition-colors duration-300 ease-in-out overflow-hidden" 

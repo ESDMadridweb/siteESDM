@@ -1,11 +1,11 @@
 <template>
     <h1 class="px-3 lg:px-6 pb-16 lg:pb-32 text-T03 lg:text-TK04 font-pkiko lg:max-w-[70%]">{{ data?.title }}</h1>
-    <img 
+    <CommonImage
         width="1920"
         class="w-full h-auto px-3 lg:px-6"
         :src="data?.image" 
         :alt="data?.title"
-    >
+    />
     <div class="border-b border-g3 grid grid-cols-1 gap-6 lg:gap-0 lg:grid-cols-12 pt-10 pb-16 px-3 lg:px-6">
         <div class="lg:col-span-5 text-BO4 lg:text-BO3">
             <div v-html="data?.info" />

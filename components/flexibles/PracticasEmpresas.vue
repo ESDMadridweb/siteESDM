@@ -26,12 +26,12 @@
         <div class="w-full overflow-hidden lg:mt-16">
             <CommonMarquee>
                 <div v-for="logo in block?.logos" class="w-[100px] h-[140px]">
-                    <img 
+                    <CommonImage
                         class="w-full h-full object-contain object-center"
                         width="240"
                         :src="logo?.sizes?.large" 
                         :alt="logo?.alt"
-                    >
+                    />
                 </div>
             </CommonMarquee>
         </div>

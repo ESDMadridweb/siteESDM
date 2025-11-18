@@ -2,7 +2,6 @@
 defineProps({
     src: {
         type: String,
-        required: true
     },
     alt: {
         type: String,
@@ -11,13 +10,19 @@ defineProps({
     width: {
         type: String,
         default: '1920'
+    },
+    loading: {
+        type: String,
+        default: 'lazy'
     }
 })
 </script>
 <template>
     <img
+        v-if="src"
         :src="src" 
         :alt="alt"
         :width="width"
+        :loading="loading"
     >
 </template>

@@ -5,12 +5,12 @@
                 <h2>Por {{ blocks?.autor }}</h2>
                 <h3>{{ blocks?.info_del_autor }}</h3>
             </div>
-            <img 
+            <CommonImage
                 width="1920"
                 class="w-full"
                 :src="image" 
                 :alt="blocks?.autor"
-            >
+            />
         </div>
         <div v-if="blocks?.contenido && blocks?.contenido.length > 0" class="flex flex-col gap-6 lg:gap-10 py-8 lg:py-16">
             <template v-for="block in blocks?.contenido">

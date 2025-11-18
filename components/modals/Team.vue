@@ -4,12 +4,12 @@
         <div class="lg:border-t border-g3 grid grid-cols-1 lg:grid-cols-12 px-0 lg:px-6 lg:pt-6 pb-8 lg:pb-14">
             <div class="lg:col-span-3">
                 <template v-if="data?.image">
-                    <img 
+                    <CommonImage
                         class="w-full aspect-[1/1.26] mb-8 lg:mb-2"
                         width="360"
                         :src="data?.image" 
                         :alt="data?.title"
-                    >
+                    />
                 </template>
                 <template v-else>
                     <div class="w-full aspect-[1/1.26] mb-8 lg:mb-2 bg-lila py-3 px-4 flex items-end">

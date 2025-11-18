@@ -1,11 +1,11 @@
 <template>
     <CommonWrapperScrollHorizontal>
         <template v-for="item in galleryData.dibujos">
-            <img 
+            <CommonImage
                 :src="item?.image" 
                 width="1440" 
                 class="object-contain aspect-video w-[800px]"
-            >
+            />
         </template>
     </CommonWrapperScrollHorizontal>
 </template>

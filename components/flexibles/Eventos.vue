@@ -23,12 +23,12 @@
                             <h3 class="col-span-7 lg:col-span-5 text-BO3 lg:text-T03 font-book max-w-[700px]">{{ evento?.title }}</h3>
                             <div class="hidden lg:block col-span-5 text-BO3" v-html="evento?.content" />
                             <div class="col-span-3 lg:col-span-1">
-                                <img 
+                                <CommonImage
                                     class="w-full aspect-[1/1.17] object-cover object-center"
                                     width="360"
                                     :src="evento?.image" 
                                     :alt="evento?.title"
-                                >
+                                />
                             </div>
                         </div>
                     </div>

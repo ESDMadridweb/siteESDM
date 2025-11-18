@@ -25,7 +25,7 @@
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M759.461 9.74529H566.435V54.3403H608.964V290.788H566.435V335.383H759.461L852.219 239.809V105.32L759.461 9.74529ZM807.624 221.713L740.59 290.765H653.536V54.3403H740.59L807.624 123.392V221.713Z" fill="#040406"/>
                 <path d="M927.832 4.00719H979.259L1018.35 136.473H1019.42L1058.28 4.00719H1109.94V171.858H1078.69V38.9326H1077.46L1038.83 171.858H997.797L959.161 38.9326H957.698V171.858H927.832V4.00719Z" fill="#040406"/>
             </svg>
-            <img :src="siteSettingsDataES?.footer?.logo?.url" :alt="siteSettingsDataES?.footer?.logo?.alt">
+            <CommonImage :src="siteSettingsDataES?.footer?.logo?.url" :alt="siteSettingsDataES?.footer?.logo?.alt" class="w-40" />
         </div>
     </footer>
 </template>
