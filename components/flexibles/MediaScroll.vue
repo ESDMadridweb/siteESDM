@@ -1,6 +1,6 @@
 <template>
     <div class="w-full">
-        <div ref="wrapper" class="p-3 lg:p-6" style="width: 25%">
+        <div ref="wrapper" class="p-3 lg:p-6" :style="{ width: currentWidth + '%' }">
             <div class="relative w-fit">
                 <video 
                     v-if="block?.video" 
@@ -11,7 +11,7 @@
                     muted 
                     playsinline 
                     width="1920" 
-                    class="w-full max-h-[calc(100svh-4rem)] object-contain object-left"
+                    class="w-full max-h-[calc(100svh-2rem)] object-contain object-left"
                     :poster="block?.imagen?.sizes?.large"
                 >
                 </video>
@@ -57,4 +57,38 @@ const handleMuted = () => {
         isMuted.value = video.value.muted
     }
 }
+
+const maxScroll = (window.innerWidth >= 1024) ? 500 : 200;
+const minWidth = (window.innerWidth >= 1024) ? 25 : 50;
+const maxWidth = (window.innerWidth >= 1024) ? 80 : 100;
+const currentWidth = ref((window.innerWidth >= 1024) ? 25 : 50)
+
+function map(x, a1, a2, b1, b2){
+    return ((x - a1) * (b2 - b1)) / (a2 - a1) + b1;
+}
+
+let ticking = false;
+
+const updateWidth = () => {
+    const scroll = window.scrollY
+    const clamped = Math.min(Math.max(scroll, 0), maxScroll)
+    currentWidth.value = map(clamped, 0, maxScroll, minWidth, maxWidth)
+    ticking = false
+}
+
+const onScroll = () => {
+    if (!ticking) {
+        requestAnimationFrame(updateWidth)
+        ticking = true
+    }
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', onScroll)
+})
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', onScroll)
+})
+
 </script>

@@ -19,7 +19,7 @@ const props = defineProps({
   block: Object,
 })
 const wrapper = ref(null)
-const elementActive = ref(-1)
+const elementActive = ref(0)
 
 function checkPosition() {
     if (!wrapper.value || !props.block?.temas?.length) return
@@ -36,7 +36,7 @@ function checkPosition() {
             Math.floor(scrollPos / sectionHeight)
         )
     } else {
-        elementActive.value = -1
+        elementActive.value = 0
     }
 }
 
