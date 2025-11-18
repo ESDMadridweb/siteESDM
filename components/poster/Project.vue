@@ -53,10 +53,10 @@
                 "    
             >
                 <div class="flex flex-col">
-                    <h3 class="text-BO3 capitalize" :class="{ 'text-[5px] lg:text-L02' : mode == 'Listado' }">{{ post?.content?.autor }}</h3>
-                    <h3 class="text-L02 uppercase lg:w-2/3" :class="{ 'text-[4px] lg:text-[8px]' : mode == 'Listado' }">{{ post?.content?.info_del_autor }}</h3>
+                    <h3 class="text-BO4 lg:text-BO3 capitalize" :class="{ 'text-[12px] lg:text-L02' : mode == 'Listado' }">{{ post?.content?.autor }}</h3>
+                    <h3 class="text-[10px] lg:text-L02 uppercase lg:w-2/3" :class="{ 'text-[10px] lg:text-[8px]' : mode == 'Listado' }">{{ post?.content?.info_del_autor }}</h3>
                 </div>
-                <div v-html="post?.text" class="font-pkiko thisText normal-case" :class="{ 'text-[8px] lg:text-BO4' : mode == 'Listado' }" />
+                <div v-html="post?.text" class="font-pkiko thisText normal-case" :class="{ 'text-[15px] lg:text-BO4' : mode == 'Listado' }" />
             </div>
         </template>
     </NuxtLink>
@@ -79,12 +79,12 @@ const { locale } = useI18n()
 
 <style scoped>
 .gallery-item-type-1 .thisText{
-    @apply text-T04
+    @apply text-BO2 lg:text-T04
 }
 .gallery-item-type-2 .thisText{
-    @apply text-T04
+    @apply text-BO2 lg:text-T04
 }
 .gallery-item-type-3 .thisText{
-    @apply text-T05
+    @apply text-BO2 lg:text-T05
 }
 </style>

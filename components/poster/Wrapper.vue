@@ -3,7 +3,7 @@
         <CommonWrapperScrollHorizontal v-if="mode == 'Galeria'">
             <slot />
         </CommonWrapperScrollHorizontal>
-        <div v-else class="grid grid-cols-3 lg:grid-cols-6 px-6 gap-x-8 lg:gap-x-16 gap-y-8 lg:gap-y-16 py-8 lg:py-16">
+        <div v-else class="grid grid-cols-2 lg:grid-cols-6 px-6 gap-x-8 lg:gap-x-16 gap-y-8 lg:gap-y-16 py-8 lg:py-16">
             <slot />
         </div>        
     </div>
