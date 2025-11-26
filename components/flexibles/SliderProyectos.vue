@@ -41,7 +41,7 @@
             <div class="swiper-wrapper items-center">
                 <div 
                     v-for="proyecto in block?.proyectos" 
-                    class="swiper-slide !w-fit max-w-[70vw] max-h-[400px] lg:max-w-[600px] lg:max-h-[700px]"
+                    class="swiper-slide !w-fit"
                     @click="handleData(proyecto?.data)"
                     @mouseenter="
                         cursorStore.active = true;
@@ -58,7 +58,7 @@
                         <CommonImage
                             :src="proyecto?.data?.image" 
                             :alt="proyecto?.data?.titulo" 
-                            class="w-auto h-full object-contain"
+                            class="w-auto max-h-[300px]"
                         />
                     </div>
                 </div>

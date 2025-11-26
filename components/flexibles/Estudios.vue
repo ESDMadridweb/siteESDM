@@ -1,10 +1,10 @@
 <template>
     <div class="flex flex-col gap-28 lg:pt-40">
         <h2 class="hidden lg:block px-3 lg:px-6 text-center text-TK02 font-pkiko uppercase max-w-[1100px] mx-auto">{{ block?.titulo }}</h2>
-        <div class="flex flex-col gap-32">
+        <div class="flex flex-col gap-16 lg:gap-32">
             <div v-for="grupo in block?.grupos" class="flex flex-col gap-8">
                 <h3 class="px-3 lg:px-6 text-T03 uppercase lg:normal-case lg:text-TK04 font-pkiko">{{ grupo?.titulo }}</h3>
-                <div class="border-t border-g3">
+                <div class="border-t border-g3 last:border-b lg:last:border-b-0">
                     <CommonLink v-for="(estudio, index) in grupo?.estudios" :to="estudio?.slug" :type="estudio?.type">
                         <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 px-3 lg:px-6 py-6 lg:py-4 group hover:bg-blue transition-colors duration-500 ease-in-out" :class="{ 'border-t border-g3' : index != 0 }">
                             <div class="hidden lg:block col-span-1">
