@@ -70,6 +70,8 @@ const getDates = (from, to) => {
         
         return new Date(`${año}-${mes}-${dia}T${hora}:${minuto}:00`);
     };
+
+    if(!from || !to) return
     
     const fechaDesde = parseFecha(from);
     const fechaHasta = parseFecha(to);
