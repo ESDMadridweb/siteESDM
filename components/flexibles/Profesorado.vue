@@ -3,12 +3,12 @@
         
         <h2 class="text-T03 lg:text-TK04 font-pkiko px-3 lg:px-6">{{ block?.titulo }}</h2>
         <div class="border-t border-g3 px-3 lg:px-6 grid grid-cols-2 lg:grid-cols-4 gap-x-2 lg:gap-x-16 gap-y-5 pt-4 lg:pt-6">
-            <div v-for="item in block?.profesorado" class="group text-BO3 relative cursor-pointer" @click="handleData(item?.data)">
+            <div v-for="item in block?.profesorado" class="group hover:z-20 text-BO3 relative cursor-pointer" @click="handleData(item?.data)">
                 <h3 class="group-hover:text-blue transition-colors duration-300 ease-in-out">{{ item?.data?.title }}</h3>
                 <h4 class="text-g4 group-hover:text-blue transition-colors duration-300 ease-in-out">{{ item?.cargo }}</h4>
                 <CommonImage
                     v-if="item?.data?.image"
-                    class="hidden lg:block absolute right-0 -top-20 w-40 h-60 group-hover:!opacity-100 object-cover opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none"
+                    class="hidden lg:block absolute -z-10 right-0 -top-20 w-40 h-60 group-hover:!opacity-100 object-cover opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none"
                     width="480"
                     :src="item?.data?.image" 
                     :alt="item?.data?.title"

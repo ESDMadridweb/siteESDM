@@ -5,7 +5,7 @@
             <div class="lg:col-span-3">
                 <template v-if="data?.image">
                     <CommonImage
-                        class="w-full aspect-[1/1.26] mb-8 lg:mb-2"
+                        class="w-full aspect-[1/1.26] mb-8 lg:mb-2 object-cover"
                         width="360"
                         :src="data?.image" 
                         :alt="data?.title"
