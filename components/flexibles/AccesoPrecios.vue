@@ -56,20 +56,31 @@
             class="fixed top-0 left-0 w-full h-full flex items-end z-[99] pointer-events-none opacity-0 delay-1000" 
             :class="{ '!opacity-100 !pointer-events-auto !delay-0' : activeMail }"
         >
-            <div class="bg-green w-full px-6 pt-4 pb-11 translate-y-full transition-transform duration-1000 ease-in-out relative z-20" :class="{ '!translate-y-0' : activeMail }">
+            <div class="bg-green w-full px-3 lg:px-6 pt-4 pb-9 lg:pb-11 translate-y-full transition-transform duration-1000 ease-in-out relative z-20" :class="{ '!translate-y-0' : activeMail }">
                 <div class="w-full flex justify-end">
-                    <span class="cursor-pointer" @click="closeMail()">Cerrar</span>            
+                    <span class="cursor-pointer text-BO4" @click="closeMail()">Cerrar</span>            
                 </div>
-                <div class="w-full grid grid-cols-12">
-                    <form class="col-span-7 flex flex-col gap-4">
-                        <div class="border-b border-black flex text-T03 py-2">
-                            <input class="grow bg-[transparent] placeholder:text-[#04040650] appearance-none outline-none focus:outline-none focus:ring-0" type="text" placeholder="Tu email">
+                <div class="w-full grid grid-cols-1 lg:grid-cols-12 mt-10 lg:mt-0">
+                    <form 
+                        @submit.prevent="handleSubmit" 
+                        name="Contact" 
+                        data-netlify="true" 
+                        netlify-honeypot="hpfield" 
+                        method="POST"
+                        class="lg:col-span-7 flex flex-col gap-4"
+                    >
+                        <input type="hidden" name="form-name" value="Contact">
+                        <div class="border-b border-black flex text-BO3 lg:text-T03 py-2">
+                            <input class="grow bg-[transparent] placeholder:text-[#04040650] appearance-none outline-none focus:outline-none focus:ring-0" required type="email" name="email" placeholder="Tu email">
                             <button type="submit">Enviar</button>
-                        </div>  
-                        <div class="text-L02">Dejando tu correo aceptas la Política de Privacidad</div>
+                        </div>
+                        <div class="flex gap-1 items-center">
+                            <input required type="checkbox" name="policy">
+                            <label for="policy" class="text-L02 pt-0.5">Dejando tu correo aceptas la Política de Privacidad</label>
+                        </div>
                     </form>
                 </div>
-                <div class="text-T03 absolute top-0 left-0 w-4/5 h-full flex flex-col justify-center px-6 py-4 bg-green z-50 pointer-events-none opacity-0">
+                <div class="text-B03 lg:text-T03 absolute bottom-0 lg:bottom-[unset] lg:top-0 left-0 w-full lg:w-4/5 font-book leading-none lg:h-full flex flex-col justify-center px-6 py-10 lg:py-4 bg-green z-50 pointer-events-none opacity-0" :class="{'opacity-100 pointer-events-auto' : showInfo}">
                     <div>
                         Gracias por dejarnos tu email. <br>
                         Te avisaremos cuando se abra el registro del próximo curso.
@@ -98,5 +109,33 @@ const closeMail = () => {
     activeMail.value = false;
     siteStore.overflowHidden = false
 }
+
+const showInfo = ref(false)
+
+const handleSubmit = async (event) => {
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch("/", {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json',
+            }
+        });
+        if (response.ok) {
+            showInfo.value = true
+            console.log('Formulario enviado correctamente');
+        } else {
+            throw new Error(`Error: ${response.statusText}`);
+        }
+    } catch (error) {
+        console.log("Error: " + error.message);
+    }
+
+}
+
 
 </script>

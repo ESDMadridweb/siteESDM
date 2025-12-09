@@ -7,11 +7,15 @@
                 <h3 class="group-hover:text-blue transition-colors duration-300 ease-in-out">{{ item?.data?.title }}</h3>
                 <h4 class="text-g4 group-hover:text-blue transition-colors duration-300 ease-in-out">{{ item?.cargo }}</h4>
                 <CommonImage
+                    v-if="item?.data?.image"
                     class="hidden lg:block absolute right-0 -top-20 w-40 h-60 group-hover:!opacity-100 object-cover opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none"
                     width="480"
                     :src="item?.data?.image" 
                     :alt="item?.data?.title"
                 />
+                <div v-else class="hidden lg:flex items-end absolute right-0 -top-20 bg-lila w-40 h-60 group-hover:!opacity-100 object-cover opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none">
+                    <div class="text-T03 font-pkiko p-2">{{ getInitials(item?.data?.title) }}</div>
+                </div>
             </div>
         </div>
 
@@ -58,5 +62,13 @@ const cleanData = () => {
 const animation = ref(false)
 
 const { locale } = useI18n()
+
+function getInitials(name) {
+    if (!name) return "";
+    return name
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase())
+        .join("");
+}
 
 </script>

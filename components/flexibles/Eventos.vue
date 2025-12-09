@@ -80,6 +80,9 @@ const cleanData = () => {
 const animation = ref(false)
 
 const getDates = (from, to) => {
+
+    if(!from || !to) return
+
     const parseFecha = (fechaStr) => {
         const [fecha, tiempo, periodo] = fechaStr.split(' ');
         let [dia, mes, año] = fecha.split('/');
