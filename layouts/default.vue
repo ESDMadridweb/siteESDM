@@ -5,7 +5,7 @@
             <slot />
         </main>
         <CommonFooter />
-        <CommonAhoraMismo v-if="route.name == 'index___es' || route.name == 'index___en'" />
+        <CommonAhoraMismo v-if="route.name.startsWith('index__')" />
         <CommonMouseFollower class="transition-opacity duration-500 ease-in-out">
             <div class="relative">
                 <div 
