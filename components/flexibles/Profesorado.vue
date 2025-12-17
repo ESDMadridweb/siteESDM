@@ -14,7 +14,7 @@
                     :alt="item?.data?.title"
                 />
                 <div v-else class="hidden lg:flex items-end absolute right-0 -top-20 bg-lila w-40 h-60 group-hover:!opacity-100 object-cover opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none">
-                    <div class="text-T03 font-pkiko p-2">{{ getInitials(item?.data?.title) }}</div>
+                    <div class="text-T03 xl:text-TK04 font-pkiko p-2">{{ getInitials(item?.data?.title) }}</div>
                 </div>
             </div>
         </div>

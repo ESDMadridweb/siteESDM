@@ -9,15 +9,15 @@
                 <div class="text-BO4 cursor-pointer pointer-events-auto">
                     <template v-if="member?.image">
                         <CommonImage
-                            class="w-full aspect-[1/1.26] mb-2"
+                            class="w-full aspect-[1/1.26] mb-2 object-cover"
                             width="360"
                             :src="member?.image" 
                             :alt="member?.title"
                         />
                     </template>
                     <template v-else>
-                        <div class="w-full aspect-[1/1.26] mb-2 bg-lila py-3 px-4 flex items-end">
-                            <div class="text-TK04 lg:text-TK02 font-pkiko">{{ getInitials(member?.title) }}</div>
+                        <div class="w-full aspect-[1/1.26] mb-2 bg-lila py-3 px-2 lg:px-4 flex items-end">
+                            <div class="text-T03 xl:text-TK04 font-pkiko">{{ getInitials(member?.title) }}</div>
                         </div>
                     </template>
                     <h2>{{ member?.title }}</h2>
