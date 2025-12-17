@@ -1,81 +1,73 @@
-# Nuxt 3 Minimal Starter
+# Web Escuela Superior de Diseño Madrid
 
-Look at the
-[Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to
-learn more.
+## Tecnologías utilizadas
 
-## Setup
+- Nuxt 3 | Frontend
+- Tailwind CSS | Estilos
+- Wordpress | Backend
+- Netlify | Despliegue
 
-Make sure to install the dependencies:
+## Estructura del Proyecto
+
+```text
+siteESDM/
+├── assets               # Recursos estáticos procesables (CSS, imágenes, fuentes)
+├── components           # Componentes Vue reutilizables
+├── composables          # Funciones reactivas reutilizables (composables de Vue 3)
+├── layouts              # Layouts para estructurar páginas
+├── middleware           # Funciones que se ejecutan antes de cargar una página/ruta
+├── netlify              # Configuración de despliegue para Netlify
+├── pages                # Páginas Vue que generan automáticamente rutas
+├── plugins              # Plugins de Vue o terceros para integrar en la app
+├── public               # Archivos estáticos sin procesar (favicon, robots.txt)
+├── stores               # Almacenamiento global (Pinia o Vuex)
+├── utils                # Funciones y helpers generales
+├── .env.example         # Ejemplo de variables de entorno
+├── .gitignore           # Archivos/carpetas que Git debe ignorar
+├── .npmrc               # Configuración de npm específica del proyecto
+├── app.vue              # Componente raíz de la aplicación Nuxt
+├── error.vue            # Página de error personalizada
+├── nuxt.config.js       # Configuración principal de Nuxt.js
+├── package-lock.json    # Registro de versiones exactas de dependencias
+├── package.json         # Dependencias, scripts y metadata del proyecto
+├── README.md            # Documentación del proyecto
+├── tailwind.config.cjs  # Configuración de Tailwind CSS
+```
+
+## Enlaces
+### Producción
+https://site-esdm.netlify.app/
+### Preview
+https://preview--site-esdm.netlify.app/
+
+## Configuración
+
+Asegúrate de instalar las dependencias:
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## Servidor de Desarrollo
 
-Start the development server on `http://localhost:3000`:
+Inicia el servidor de desarrollo en http://localhost:3000:
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## Producción
 
-Build the application for production:
+**⚠️ Atención:** Una vez se suban cambios a las ramas "main" o "preview", se iniciarán automáticamente los procesos de construcción en Netlify.
+
+Compila la aplicación para producción:
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+Vista previa local de la compilación para producción:
 
 ```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
-
-Check out the
-[deployment documentation](https://nuxt.com/docs/getting-started/deployment) for
-more information.
-
-[Web development checklist](https://www.notion.so/Web-development-checklist-15a108e532e18014b82bcb5d58c15b09)  
