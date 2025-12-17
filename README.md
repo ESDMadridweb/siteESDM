@@ -50,7 +50,9 @@ npm install
 
 ## Servidor de Desarrollo
 
-Inicia el servidor de desarrollo en http://localhost:3000:
+1. Copia el archivo .env.local a .env
+
+2. Inicia el servidor de desarrollo en http://localhost:3000:
 
 ```bash
 npm run dev
