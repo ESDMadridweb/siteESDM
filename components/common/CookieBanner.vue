@@ -9,6 +9,26 @@ const props = defineProps({
 })
 const cookieConsent = useCookieConsent()
 
+const { locale } = useI18n()
+
+const message = computed(() => {
+    return locale.value == 'es'
+    ? `<div class="cc-message-wrapper">Este sitio web utiliza cookies propias y de terceros necesarias para su funcionamiento y para analizar sus hábitos de navegación. Para más información, por favor consulte nuestra <a class="c-bn" target="_blank" href="/politica-de-cookies">Política de Cookies</a> <br> Para aceptar todas las cookies, haga clic en Aceptar todas. Para rechazar todas, haga clic en Rechazar todas. </div>`
+    : `<div class="cc-message-wrapper">This website uses its own and third-party cookies necessary for its operation and to analyze your browsing habits. For more information, please access our <a class="c-bn" target="_blank" href="/en/cookies-policy">Cookie Policy</a> To accept all cookies click Accept All. <br> To reject all click on Reject All.</div>`
+})
+
+const acceptAll = computed(() => {
+    return locale.value == 'es'
+    ? 'Aceptar todo'
+    : 'Accept all'
+})
+
+const rejectAll = computed(() => {
+    return locale.value == 'es'
+    ? 'Rechazar todo'
+    : 'Deject all'
+})
+
 function showCookieConsent() {
     /**
      * All config. options available here:
@@ -131,14 +151,9 @@ function showCookieConsent() {
                 en: {
                     consentModal: {
                         title: false,
-                        description:
-                            `<div class="cc-message-wrapper">This website uses its own and third-party cookies necessary for its operation and to analyze your browsing habits. For more information, please access our <a class="c-bn" target="_blank" href="/politica-de-cookies">Cookie Policy</a>` +
-                            (props.enableConfigBanner
-                                ? ` or visit <a class="underline" type="button" data-cc="show-preferencesModal">Cookie Settings</a> to provide a controlled consent. `
-                                : `. `) +
-                            `To accept all cookies click Accept All. To reject all click on Reject All.</div>`,
-                        acceptAllBtn: 'Accept all',
-                        acceptNecessaryBtn: 'Reject all',
+                        description: message?.value,
+                        acceptAllBtn: acceptAll?.value,
+                        acceptNecessaryBtn: rejectAll?.value,
                         showPreferencesBtn: false,
                         // closeIconLabel: 'Reject all and close modal',
                         //         footer: `
@@ -214,7 +229,6 @@ onMounted(() => {
     showCookieConsent()
 })
 </script>
-
 <style>
 /* TODO: refactor banner to improve styles management (we are mixing two versions of the plugin) */
 /* cookie banner */
@@ -278,8 +292,7 @@ body #cc-main .cm [data-cc='c-settings'] {
     @apply flex flex-col lg:flex-row lg:justify-between gap-[16px] lg:gap-y-0 p-[16px];
 } */
 #cc-main .cm--cloud .cm__body {
-    @apply !p-[16px] gap-[16px];
-    border-top: 1px solid #000;
+    @apply !p-[16px] gap-[16px] bg-green font-book;
 }
 
 body #cc-main .cm--cloud .cm__desc {
