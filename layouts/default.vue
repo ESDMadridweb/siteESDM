@@ -29,6 +29,10 @@
                 </div>
             </div>
         </CommonMouseFollower>
+        <ClientOnly>
+            <CommonCookieBanner />
+        </ClientOnly>
+
     </div>
 </template>
 

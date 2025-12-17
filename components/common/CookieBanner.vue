@@ -2,10 +2,6 @@
 <script setup>
 import useCookieConsent from '~/composables/cookieConsent'
 const props = defineProps({
-    cookiesPolicyLink: {
-        type: String,
-        required: true,
-    },
     enableConfigBanner: {
         type: Boolean,
         default: false,
@@ -136,11 +132,7 @@ function showCookieConsent() {
                     consentModal: {
                         title: false,
                         description:
-                            `<div class="cc-message-wrapper">This website uses its own and third-party cookies necessary for its operation and to analyze your browsing habits. For more information, please access our <a class="c-bn" target="_blank" href="${
-                                props.cookiesPolicyLink
-                                    ? props.cookiesPolicyLink
-                                    : ''
-                            }">Cookie Policy</a>` +
+                            `<div class="cc-message-wrapper">This website uses its own and third-party cookies necessary for its operation and to analyze your browsing habits. For more information, please access our <a class="c-bn" target="_blank" href="/politica-de-cookies">Cookie Policy</a>` +
                             (props.enableConfigBanner
                                 ? ` or visit <a class="underline" type="button" data-cc="show-preferencesModal">Cookie Settings</a> to provide a controlled consent. `
                                 : `. `) +

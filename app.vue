@@ -74,6 +74,8 @@ const favicon = computed(() => {
     : siteSettingsDataEN?.value?.favicon
 });
 
+const gtmID = "GTM-MRP7PBT"
+
 useHead({
     meta: [
         {
@@ -94,6 +96,30 @@ useHead({
             as: 'font',
             type: 'font/woff2',
         },
-    ]
+    ],
+    noscript: gtmID
+        ? [
+            {
+                hid: 'gtm',
+                children: `<iframe src="https://www.googletagmanager.com/ns.html?id=${gtmID}" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe>`,
+                'data-analytics-type': 'gtm',
+                'data-cookiecategory': 'analytics',
+                body: true,
+            },
+        ]
+        : [],
+    script: gtmID
+        ? [
+            {
+                src: '/js/analytics.js',
+                type: 'text/plain',
+                'data-analytics-type': 'gtm',
+                'data-category': 'analytics',
+                'data-gtmid': gtmID,
+                body: false,
+            },
+        ]
+        : [],
 })
 </script>
