@@ -32,7 +32,7 @@ export default defineNuxtConfig({
     },
     nitro: {
         prerender: {
-            concurrency: 10,
+            concurrency: 20,
             interval: 500,
             failOnError: false,
         },
