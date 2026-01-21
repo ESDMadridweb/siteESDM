@@ -32,8 +32,9 @@ export default defineNuxtConfig({
     },
     nitro: {
         prerender: {
-            concurrency: 5,
+            concurrency: 10,
             interval: 500,
+            failOnError: false,
         },
         routeRules: {
             // prerender all pages, full static
