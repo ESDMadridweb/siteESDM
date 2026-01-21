@@ -1,8 +1,8 @@
 <template>
     <div class="mt-6 lg:mt-SP10">
-        <h1 class="px-3 pt-6 lg:px-6 lg:py-10 text-TK04 lg:text-DO2 uppercase font-pkiko break-words hyphens-auto">{{ title }}</h1>
+        <h1 class="px-3 pt-6 lg:px-6 lg:py-10 text-TK04 lg:text-DO2 uppercase font-pkiko break-words hyphens-auto">{{ t("News") }}</h1>
         <div class="px-3 lg:px-6 flex gap-3 items-center pb-6 mt-14 lg:mt-28">
-            <span class="uppercase text-LM02 pt-1 lg:pt-0">{{ Ver }}:</span>
+            <span class="uppercase text-LM02 pt-1 lg:pt-0">{{ t("See") }}:</span>
             <div v-for="category in newsData?.categories" class="flex items-center text-BO4 lg:text-BO3 cursor-pointer gap-[6px] select-none" @click="(categorySelected == category?.slug) ? categorySelected = '' : categorySelected = category?.slug">
                 <span class="w-4 h-4 border border-g3 rounded-full" :class="{ 'bg-black' : categorySelected == category?.slug}"></span>
                 <span class="pt-1 lg:pt-0">{{ category?.name }}</span>
@@ -16,7 +16,7 @@
                     class="flex flex-col gap-5 border-t border-g3 px-3 py-4 lg:p-6 hover:bg-blue transition-colors duration-300 ease-in-out"
                     @mouseenter="
                         cursorStore.active = true;
-                        cursorStore.text = Leer;
+                        cursorStore.text = t('Read');
                     " 
                     @mouseleave="
                         cursorStore.active = false;
@@ -43,16 +43,13 @@ const route = useRoute()
 const bodyClass = route.name
 const siteStore = useSiteStore()
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const { data: newsData } = await useFetch(`${siteStore.api}/get-news?lang=${locale.value}`)
 const { data: newsPageData} = await useFetch(`${siteStore.api}/get-archive?type=noticias&lang=${locale.value}`)
 
 const categorySelected = ref('')
 const cursorStore = useCursorStore()
 
-const title = computed(() => (locale.value === 'es' ? 'Noticias' : 'News'))
-const Ver = computed(() => (locale.value === 'es' ? 'Ver' : 'See'))
-const Leer = computed(() => (locale.value === 'es' ? 'Leer' : 'Read'))
 useHead({
     bodyAttrs: {
         class: bodyClass,

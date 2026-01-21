@@ -1,6 +1,6 @@
 <template>
     <div class="mt-6 lg:mt-SP10">
-        <h1 class="px-3 pt-6 lg:px-6 lg:py-10 text-TK04 lg:text-DO2 uppercase font-pkiko break-words hyphens-auto">{{ title }}</h1>
+        <h1 class="px-3 pt-6 lg:px-6 lg:py-10 text-TK04 lg:text-DO2 uppercase font-pkiko break-words hyphens-auto">{{ t("Team") }}</h1>
         <div class="grid grid-cols-2 lg:grid-cols-6 gap-y-8 lg:gap-y-20 gap-x-3 lg:gap-x-5 px-3 lg:px-6 my-16 lg:my-28">
             <NuxtLink 
                 v-for="member in teamData?.team" 
@@ -37,12 +37,9 @@ const route = useRoute()
 const bodyClass = route.name
 const siteStore = useSiteStore()
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const { data: teamData } = await useFetch(`${siteStore.api}/get-team?lang=${locale.value}`)
 const { data: teamPageData} = await useFetch(`${siteStore.api}/get-archive?type=equipo&lang=${locale.value}`)
-
-const title = computed(() => (locale.value === 'es' ? 'Equipo' : 'Team'))
-const close = computed(() => (locale.value === 'es' ? 'Cerrar' : 'Close'))
 
 function getInitials(name) {
     if (!name) return "";

@@ -9,7 +9,7 @@ const props = defineProps({
 })
 const cookieConsent = useCookieConsent()
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 
 const message = computed(() => {
     return locale.value == 'es'
@@ -152,8 +152,8 @@ function showCookieConsent() {
                     consentModal: {
                         title: false,
                         description: message?.value,
-                        acceptAllBtn: acceptAll?.value,
-                        acceptNecessaryBtn: rejectAll?.value,
+                        acceptAllBtn: t("Accept all"),
+                        acceptNecessaryBtn: t("Reject all"),
                         showPreferencesBtn: false,
                         // closeIconLabel: 'Reject all and close modal',
                         //         footer: `

@@ -1,7 +1,7 @@
 <template>
     <h1 class="px-3 lg:px-6 pb-16 lg:pb-32 text-T03 lg:text-TK04 font-pkiko lg:max-w-[70%]">{{ data?.title }}</h1>
     <div class="border-t border-g4 grid grid-cols-1 lg:grid-cols-12 px-3 lg:px-6 pt-3 lg:pt-6 pb-16 gap-6 lg:gap-0">
-        <div class="lg:col-span-5 text-BO4 lg:text-BO3">{{ Publicado }} {{ data?.date }}</div>
+        <div class="lg:col-span-5 text-BO4 lg:text-BO3">{{ t("Published") }} {{ data?.date }}</div>
         <div class="lg:col-span-7 flex flex-col gap-8">
             <div v-html="data?.content" class="text-BO3 lg:text-T06 whitespace-pre-line content" />
             <CommonLink v-if="data?.button" :to="data?.button?.url" class="text-BO3 bg-black text-white py-2 px-3 w-fit">
@@ -10,7 +10,7 @@
         </div>
     </div>
     <div v-if="data?.downloads" class="border-t border-g3 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-0 px-3 lg:px-6 pt-3 lg:pt-6 pb-16">
-        <div class="lg:col-span-5 text-BO4 lg:text-BO3">{{ Descargas }}</div>
+        <div class="lg:col-span-5 text-BO4 lg:text-BO3">{{ t("Downloads") }}</div>
         <div class="lg:col-span-7 flex flex-col gap-4">
             <div v-for="descarga in data?.downloads">
                 <a :href="descarga?.descarga?.url" :download="true" class="text-BO3 flex gap-3 items-start">
@@ -30,7 +30,5 @@
 defineProps({
     data: Object,
 })
-const { locale } = useI18n()
-const Descargas = computed(() => (locale.value === 'es' ? 'Descargas' : 'Downloads'))
-const Publicado = computed(() => (locale.value === 'es' ? 'Publicado el' : 'Published'))
+const { t } = useI18n()
 </script>

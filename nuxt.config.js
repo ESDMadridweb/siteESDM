@@ -156,6 +156,7 @@ export default defineNuxtConfig({
         },
         defaultLocale: 'es',
         baseUrl: process.env.NUXT_PUBLIC_SITE_URL,
+        vueI18n: '@/i18n/i18n.config.js',
         
     },
     runtimeConfig: {

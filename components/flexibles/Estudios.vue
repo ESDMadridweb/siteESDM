@@ -22,7 +22,7 @@
                                     <path d="M18.0347 7.74074L25.4125 15.1096H3.55469V16.8874H25.4125L18.0347 24.2563L19.2969 25.5185L28.808 15.9985L19.2969 6.47852L18.0347 7.74074Z" fill="#040406"/>
                                 </svg>
                             </div>
-                            <div class="lg:hidden mt-14 text-BO3">{{ SeeMore }}</div>
+                            <div class="lg:hidden mt-14 text-BO3">{{ t("See more") }}</div>
                         </div>
                     </CommonLink>
                     
@@ -36,10 +36,6 @@ const props = defineProps({
     block: Object,
 })
 
-const { locale } = useI18n()
-const SeeMore = computed(() => {
-    return locale.value == 'es'
-    ? 'Ver más'
-    : 'See more'
-})
+const { t } = useI18n()
+
 </script>

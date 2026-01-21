@@ -3,7 +3,7 @@
         :id="block?.titulo.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')"
         @mouseenter="
             cursorStore.active = true;
-            cursorStore.text = Desliza;
+            cursorStore.text = t('Drag');
         " 
         @mouseleave="
             cursorStore.active = false;
@@ -29,9 +29,7 @@
 import Swiper from 'swiper'
 import 'swiper/css'
 
-const { locale } = useI18n()
-
-const Desliza = computed(() => (locale.value === 'es' ? 'Desliza' : 'Drag'))
+const { t } = useI18n()
 
 const cursorStore = useCursorStore()
 

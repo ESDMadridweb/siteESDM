@@ -9,7 +9,7 @@
                     class="w-full flex flex-col gap-2 cursor-pointer"
                     @mouseenter="
                         cursorStore.active = true;
-                        cursorStore.text = Leer;
+                        cursorStore.text = t('Read');
                     " 
                     @mouseleave="
                         cursorStore.active = false;
@@ -73,7 +73,6 @@ import { useSiteStore } from '../../stores/site';
 const siteStore = useSiteStore()
 
 const cursorStore = useCursorStore()
-const Leer = computed(() => (locale.value === 'es' ? 'Leer' : 'Read'))
 
 const props = defineProps({
     block: Object,
@@ -97,7 +96,7 @@ const cleanData = () => {
 
 const animation = ref(false)
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 
 import Swiper from 'swiper'
 import 'swiper/css'

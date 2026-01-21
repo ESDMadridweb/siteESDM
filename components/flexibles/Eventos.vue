@@ -9,7 +9,7 @@
                         @click="handleData(evento)"
                         @mouseenter="
                             cursorStore.active = true;
-                            cursorStore.text = Ver;
+                            cursorStore.text = t('See');
                         " 
                         @mouseleave="
                             cursorStore.active = false;
@@ -55,10 +55,8 @@
 const props = defineProps({
     block: Object,
 })
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const cursorStore = useCursorStore()
-
-const Ver = computed(() => (locale.value === 'es' ? 'Ver' : 'See'))
 
 const siteStore = useSiteStore()
 const setData = ref(null)

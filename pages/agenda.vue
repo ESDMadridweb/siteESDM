@@ -1,6 +1,6 @@
 <template>
     <div class="mt-6 lg:mt-SP10">
-        <h1 class="px-3 pt-6 lg:px-6 lg:py-10 text-TK04 lg:text-DO2 uppercase font-pkiko break-words hyphens-auto">{{ title }}</h1>
+        <h1 class="px-3 pt-6 lg:px-6 lg:py-10 text-TK04 lg:text-DO2 uppercase font-pkiko break-words hyphens-auto">{{ t("Calendar") }}</h1>
         <div class="grid my-14 lg:my-28 lg:px-6">
             <template v-for="(item, index) in agendaData?.agendas">
                 <span class="line-separator w-full h-[1px] bg-g3 transition-colors duration-300 ease-in-out"></span>
@@ -9,7 +9,7 @@
                     class="item-agenda w-full flex justify-between px-3 lg:px-0 py-3 lg:py-6 hover:text-blue box-content transition-colors duration-300 ease-in-out"
                     @mouseenter="
                         cursorStore.active = true;
-                        cursorStore.text = Ver;
+                        cursorStore.text = t('See');
                     " 
                     @mouseleave="
                         cursorStore.active = false;
@@ -49,12 +49,9 @@ const route = useRoute()
 const bodyClass = route.name
 const siteStore = useSiteStore()
 const cursorStore = useCursorStore()
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const { data: agendaData } = await useFetch(`${siteStore.api}/get-agendas?lang=${locale.value}`)
 const { data: agendaPageData} = await useFetch(`${siteStore.api}/get-archive?type=agenda&lang=${locale.value}`)
-
-const title = computed(() => (locale.value === 'es' ? 'Agenda' : 'Calendar'))
-const Ver = computed(() => (locale.value === 'es' ? 'Ver' : 'See'))
 
 const getDates = (from, to) => {
     const parseFecha = (fechaStr) => {
