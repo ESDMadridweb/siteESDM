@@ -93,3 +93,7 @@ html:has(body.poster-id___es) footer{
     display: none;
 }
 
+
+.texto-descarga a{
+    @apply px-4 py-3 bg-black !text-white text-BO4 lg:text-BO3 w-fit block;
+}
