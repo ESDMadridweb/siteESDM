@@ -66,6 +66,9 @@ const resetCursor = () => {
 const { data: siteSettingsDataES } = await useFetch(`${siteStore.api}/get-site-settings?lang=es`)
 const { data: siteSettingsDataEN } = await useFetch(`${siteStore.api}/get-site-settings?lang=en`)
 
+provide('siteSettingsDataES', siteSettingsDataES)
+provide('siteSettingsDataEN', siteSettingsDataEN)
+
 const { locale } = useI18n()
 
 const favicon = computed(() => {
