@@ -44,6 +44,14 @@ const updateCurrentSectionOnScroll = () => {
 
   if (closestIndex !== -1 && currentSection.value !== closestIndex) {
     currentSection.value = closestIndex;
+
+    const section = props.sections[currentSection.value];
+    const hash = `#${encodeURIComponent(section?.id)}`;
+
+    if (window.location.hash !== hash) {
+      history.replaceState(history.state, '', hash);
+    }
+    
   }
 };
 
@@ -59,6 +67,9 @@ const throttledUpdate = () => {
 
 onMounted(() => {
   window.addEventListener('scroll', throttledUpdate);
+  setTimeout(() => {
+    updateCurrentSectionOnScroll()
+  }, 1000);
 });
 
 onUnmounted(() => {

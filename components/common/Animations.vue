@@ -25,27 +25,28 @@ router.afterEach((to, from) => {
 </script>
 
 <template>
-  <div class="fixed top-0 left-0 w-full h-screen pointer-events-none overflow-hidden animation-items">
-    <CommonImage
-      v-for="(item, index) in data?.items"
-      :key="item.id"
-      class="absolute w-[var(--width)] item top-[var(--topStart)] left-[var(--leftStart)]"
-      :class="{'animate': restart}"
-      :src="item.image"
-      :width="item.width"
-      alt="transition"
-      @animationend="index === data.items.length - 1 ? restartAnimation() : null"
-      :style="{
-        '--width': item.width + '%',
-        '--leftStart': item.leftstart + '%',
-        '--leftEnd': item.leftend + '%',
-        '--topStart': item.topstart + '%',
-        '--topEnd': item.topend + '%',
-        '--timeStart': item.timestart + 'ms',
-        '--duration': item.duration + 'ms',
-        '--timing': item.timing
-      }"
-    />
+  <div v-if="data?.items && data?.items.length > 0" class="fixed top-0 left-0 w-full h-screen pointer-events-none overflow-hidden animation-items">
+    <template v-for="(item, index) in data?.items" :key="item.id">
+      <CommonImage
+        v-if="item?.image"
+        class="absolute w-[var(--width)] item top-[var(--topStart)] left-[var(--leftStart)]"
+        :class="{'animate': restart}"
+        :src="item.image"
+        :width="item.width"
+        alt="transition"
+        @animationend="index === data.items.length - 1 ? restartAnimation() : null"
+        :style="{
+          '--width': item.width + '%',
+          '--leftStart': item.leftstart + '%',
+          '--leftEnd': item.leftend + '%',
+          '--topStart': item.topstart + '%',
+          '--topEnd': item.topend + '%',
+          '--timeStart': item.timestart + 'ms',
+          '--duration': item.duration + 'ms',
+          '--timing': item.timing
+        }"
+      />
+    </template>
   </div>
 </template>
 
