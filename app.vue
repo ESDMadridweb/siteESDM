@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { useMenuStore } from '../../stores/menu';
+import { useMenuStore } from './stores/menu';
 import { useSiteStore } from './stores/site';
 
 import { gsap } from 'gsap'
