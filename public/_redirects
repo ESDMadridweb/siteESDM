@@ -1,1 +1,87 @@
-#redirect example: https://llos-nuxt.netlify.app/* https://llos.xyz/:splat 301!
+https://site-esdm.netlify.app/* https://esdmadrid.es/:splat 301!
+
+/horarios-y-calendarios /noticias/horarios-y-calendarios-curso-25-26 301
+/horarios-y-calendarios/ /noticias/horarios-y-calendarios-curso-25-26 301
+
+/grado-en-diseno /grados-en-diseno/grafico 301
+/grado-en-diseno/ /grados-en-diseno/grafico 301
+
+/inscripcion /acceso-al-grado-de-diseno 301
+/inscripcion/ /acceso-al-grado-de-diseno 301
+
+/prueba-acceso /acceso-al-grado-de-diseno 301
+/prueba-acceso/ /acceso-al-grado-de-diseno 301
+
+/sobre-la-escuela /conocenos 301
+/sobre-la-escuela/ /conocenos 301
+
+/talleres-abiertos-4 /instalaciones#talleres 301
+/talleres-abiertos-4/ /instalaciones#talleres 301
+
+/informacion-general / 301
+/informacion-general/ / 301
+
+/jornada-puertas-abiertas /noticias/jornadas-de-puertas-abiertas-2026 301
+/jornada-puertas-abiertas/ /noticias/jornadas-de-puertas-abiertas-2026 301
+
+/plan-estudios / 301
+/plan-estudios/ / 301
+
+/formularios / 301
+/formularios/ / 301
+
+/guias-docentes / 301
+/guias-docentes/ / 301
+
+/posts/guia-del-estudiante /noticias/guia-del-estudiante 301
+
+/instrucciones-curso-academico /normativa 301
+/instrucciones-curso-academico/ /normativa 301
+
+/optativas-2025-2026 /noticias 301
+/optativas-2025-2026/ /noticias 301
+
+/practicas /practicas-en-empresas 301
+/practicas/ /practicas-en-empresas 301
+
+/acceso_calificaciones / 301
+/acceso_calificaciones/ / 301
+
+/asignaturas_type/metodologicas/ / 301
+/asignaturas_type/optativas/ / 301
+/asignaturas_type/tecnologicas/ / 301
+/asignaturas_type/proyectuales/ / 301
+
+/erasmus-incoming-students /internacional 301
+
+/documentos-institucionales-2025-2026 /normativa 301
+
+/documentos /normativa 301
+/documentos/ /normativa 301
+
+/acceso /acceso-al-grado-de-diseno 301
+/acceso/ /acceso-al-grado-de-diseno 301
+
+/acceso-directo /acceso-al-grado-de-diseno 301
+/acceso-directo/ /acceso-al-grado-de-diseno 301
+
+/matriculacion-acceso /matricula 301
+/matriculacion-acceso/ /matricula 301
+
+/biblioteca2 /instalaciones#biblioteca 301
+
+/solicitud-titulos /solicitud-de-titulos 301
+
+/precios-publicos / 301
+/precios-publicos/ / 301
+
+/servicios / 301
+/servicios/ / 301
+
+/datos-y-contacto /contacto 301
+
+/blog /agenda 301
+
+/docentes/* /equipo/:splat 301
+/posts/* /noticias/:splat 301
+
