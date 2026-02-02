@@ -1,5 +1,7 @@
 https://site-esdm.netlify.app/* https://esdmadrid.es/:splat 301!
 
+/en / 301
+/en/* / 301
 
 /horarios-y-calendarios /noticias/horarios-y-calendarios-curso-25-26 301
 /horarios-y-calendarios/ /noticias/horarios-y-calendarios-curso-25-26 301
@@ -85,5 +87,5 @@ https://site-esdm.netlify.app/* https://esdmadrid.es/:splat 301!
 
 /docentes/* /equipo/:splat 301
 /posts/* /noticias/:splat 301
-/en/* / 301
+
 
