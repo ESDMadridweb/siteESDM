@@ -14,13 +14,23 @@
                     </div>
                 </template>
                 <template v-else>
-                    <div class="px-3 lg:px-6 flex justify-center">
+
+                    <div v-if="$route.path.includes('grados-en-diseno')" class="px-3 lg:px-6 flex justify-center">
                         <div class="text-center text-BO3 lg:text-T03 w-full max-w-[1100px] font-book">
                             <span @click="openMail" class="text-green cursor-pointer hidden lg:inline">Déjanos tu email </span>
                             <span class="lg:hidden">Déjanos tu </span>
                             <span @click="openMail" class="text-green cursor-pointer lg:hidden">email </span>
                             
                             <span>si quieres que te avisemos cuando se abra el registro del próximo curso</span>
+                        </div>
+                    </div>
+                    <div v-else  class="px-3 lg:px-6 flex justify-center">
+                         <div class="text-center text-BO3 lg:text-T03 w-full max-w-[1100px] font-book">
+                            <span @click="openMail" class="text-green cursor-pointer hidden lg:inline">Escribe a master@esdmadrid.es </span>
+                            <span class="lg:hidden">Escribe a</span>
+                            <span @click="openMail" class="text-green cursor-pointer lg:hidden">master@esdmadrid.es </span>
+                            
+                            <span>si tienes alguna duda que resolver o consulta que quieras realizar</span>
                         </div>
                     </div>
                     <div class="w-full overflow-x-auto not-scrollbar">
@@ -99,6 +109,8 @@ const props = defineProps({
     block: Object,
 })
 
+console.log(props.block)
+
 const activeMail = ref(false)
 
 const openMail = () => {
@@ -111,6 +123,8 @@ const closeMail = () => {
 }
 
 const showInfo = ref(false)
+
+
 
 const handleSubmit = async (event) => {
 
