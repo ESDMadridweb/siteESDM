@@ -10,7 +10,7 @@
             </div>
         </div>
         <div>
-            <div class="lg:hidden cursor-pointer">
+            <div class="hidden lg:hidden cursor-pointer">
                 <div v-if="locale == 'es'" @click="setLocale('en')">EN</div>
                 <div v-if="locale == 'en'" @click="setLocale('es')">ES</div>
             </div>

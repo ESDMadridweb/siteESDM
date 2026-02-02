@@ -9,7 +9,7 @@
                     </svg>
                 </span>
             </NuxtLink>
-            <div>
+            <div class="hidden">
                 <div v-if="locale == 'es'" @click="setLocale('en')">EN</div>
                 <div v-if="locale == 'en'" @click="setLocale('es')">ES</div>
             </div>

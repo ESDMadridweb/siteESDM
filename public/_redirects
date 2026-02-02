@@ -84,4 +84,5 @@ https://site-esdm.netlify.app/* https://esdmadrid.es/:splat 301!
 
 /docentes/* /equipo/:splat 301
 /posts/* /noticias/:splat 301
+/en/* / 301
 
