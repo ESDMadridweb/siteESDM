@@ -2,7 +2,7 @@
     <header ref="header" class="w-full flex justify-between items-center px-3 lg:px-6 py-[17px]" :class="{'sticky top-0 left-0 z-50 bg-white' : isScrollingUp}">
         <CommonHeaderLogo />
         <CommonHeaderOptions />
-        <div class="fixed top-0 left-0 w-full h-screen bg-[#04040660] z-30 backdrop-blur-sm transition-opacity opacity-100 duration-300 ease-in-out" @click="onClick" :class="{ '!opacity-0 !pointer-events-none' : !menuStore.isOpened }"></div>
+        <div class="fixed top-0 left-0 w-full h-screen bg-[#04040660] z-40 backdrop-blur-sm transition-opacity opacity-100 duration-300 ease-in-out" @click="onClick" :class="{ '!opacity-0 !pointer-events-none' : !menuStore.isOpened }"></div>
         <CommonHeaderWrapperMenu ref="wrapperMenu">
             <CommonHeaderInfo />
             <CommonHeaderMenu />
