@@ -7,6 +7,17 @@
                     <div class="grid grid-cols-1 lg:grid-cols-12 px-3 lg:px-6 pt-6 border-t border-g3">
                         <div class="lg:col-span-5">
                             <h3 class="text-BO4 lg:text-BO3 max-w-[271px] pb-5 lg:pb-0">{{ grupo?.titulo }}</h3>
+                            <NuxtLink 
+                                    v-if="grupo?.subtitulo"
+                                    :to="grupo?.subtitulo?.url" 
+                                    :target="grupo?.subtitulo?.target"
+                                    class="text-g4 hover:text-green transition-colors duration-300 ease-in-out group flex items-center gap-1"
+                                >
+                                    <span>{{ grupo?.subtitulo?.title }}</span>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path class="fill-g4 group-hover:fill-green transition-colors duration-300 ease-in-out" fill-rule="evenodd" clip-rule="evenodd" d="M14.6196 7.99855L9.65202 3.02637L8.80866 3.86972L12.3473 7.4041H1.63086V8.59299H12.3473L8.80866 12.1274L9.65202 12.9707L14.6196 7.99855Z"/>
+                                    </svg>
+                                </NuxtLink>
                         </div>
                         <div class="lg:col-start-6 lg:col-span-7 border-t lg:border-t-0 border-g3">
                             <CommonAccordeon :block="grupo?.fila" />
