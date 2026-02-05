@@ -118,7 +118,7 @@ useHead({
             'data-category': 'analytics',
         },
         {
-            src: '/js/analytics/ga.js',
+            src: '/js/analytics.js',
             type: 'text/plain',
             'data-analytics-type': 'gtm',
             'data-category': 'analytics',
