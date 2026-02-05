@@ -77,13 +77,22 @@ const favicon = computed(() => {
     : siteSettingsDataEN?.value?.favicon
 });
 
-const gtmID = "GTM-MRP7PBT"
+const gtmID = "G-N0Y9LLKK82"
+
+const runtimeConfig = useRuntimeConfig()
+const isProduction = runtimeConfig?.public?.appEnv === 'production'
+const siteUrlIsValid =
+    runtimeConfig?.public?.publicSiteUrl &&
+    !runtimeConfig?.public?.publicSiteUrl.includes('netlify.app') &&
+    !runtimeConfig?.public?.publicSiteUrl.includes('vercel.app') &&
+    !runtimeConfig?.public?.publicSiteUrl.includes('pages.dev')
+const shouldIndexFollow = isProduction && siteUrlIsValid
 
 useHead({
     meta: [
         {
             name: 'robots',
-            content: 'noindex, nofollow',
+            content: shouldIndexFollow ? 'index, follow' : 'noindex, nofollow',
         },
     ],
     link: [
