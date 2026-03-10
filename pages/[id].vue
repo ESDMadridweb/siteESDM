@@ -21,15 +21,22 @@ import { useSiteStore } from '../../stores/site';
 import { useSeoObject } from '../composables/seo';
 const siteStore = useSiteStore()
 
-const sections = [
+let sections;
+
+
+const route = useRoute()
+if(route.path.includes('internacional')){
+    sections = []
+}else{
+sections = [
   { id: 'intro', title: { es: 'Intro', en: 'Intro' } },
   { id: 'jardin', title: { es: 'Jardín', en: 'Garden' } },
   { id: 'talleres', title: { es: 'Talleres', en: 'Workshops' } },
   { id: 'anexo', title: { es: 'Anexo', en: 'Anexo' } },
   { id: 'biblioteca', title: { es: 'Biblioteca', en: 'Library' } },
 ];
+}
 
-const route = useRoute()
 const bodyClass = route.params.id
 
 const { data: pageData } = await useFetch(`${siteStore.api}/get-page/${route.params.id}`)

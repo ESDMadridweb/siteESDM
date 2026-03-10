@@ -37,9 +37,9 @@
                     </div>
                     <div v-else  class="px-3 lg:px-6 flex justify-center">
                          <div class="text-center text-BO3 lg:text-T03 w-full max-w-[1100px] font-book">
-                            <span @click="openMail" class="text-green cursor-pointer hidden lg:inline">Escribe a master@esdmadrid.es </span>
+                            <a  href="mailto:master@esdmadrid.es" class="text-green cursor-pointer hidden lg:inline">Escribe a master@esdmadrid.es </a>
                             <span class="lg:hidden">Escribe a</span>
-                            <span @click="openMail" class="text-green cursor-pointer lg:hidden">master@esdmadrid.es </span>
+                            <a href="mailto:master@esdmadrid.es" class="text-green cursor-pointer lg:hidden">master@esdmadrid.es </a>
                             
                             <span>si tienes alguna duda que resolver o consulta que quieras realizar</span>
                         </div>
