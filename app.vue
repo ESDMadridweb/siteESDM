@@ -83,7 +83,7 @@ useHead({
     meta: [
         {
             name: 'robots',
-            content: 'index, follow',
+            content: 'noindex, nofollow',
         },
     ],
     link: [
