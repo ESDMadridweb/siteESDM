@@ -1,6 +1,9 @@
 https://site-esdm.netlify.app/* https://esdmadrid.es/:splat 301!
 https://admin-dev.esdmadrid.es/e-ese-days-jornadas-de-diseno/  https://eesedays.esdmadrid.es/ 301
 https://admin-dev.esdmadrid.es/e-ese-days-2024-jornadas-de-diseno-de-la-esd/ https://eesedays.esdmadrid.es/ 301
+https://mdi.esdmadrid.es/* https://esdmadrid.es/ 301
+
+
 /en / 301!
 /en/ / 301!
 /en/* / 301!
