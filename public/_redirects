@@ -1,7 +1,9 @@
+https://esdmadrid.es/ https://esdmadrid.es/ 301
 https://site-esdm.netlify.app/* https://esdmadrid.es/:splat 301!
 https://admin-dev.esdmadrid.es/e-ese-days-jornadas-de-diseno/  https://eesedays.esdmadrid.es/ 301
 https://admin-dev.esdmadrid.es/e-ese-days-2024-jornadas-de-diseno-de-la-esd/ https://eesedays.esdmadrid.es/ 301
 https://mdi.esdmadrid.es/* https://esdmadrid.es/ 301
+https://mdec.esdmadrid.es/* https://esdmadrid.es/ 301
 
 
 /horarios-y-calendarios /noticias/horarios-y-calendarios-curso-25-26 301
