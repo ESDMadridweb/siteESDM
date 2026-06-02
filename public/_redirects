@@ -5,6 +5,10 @@ https://admin-dev.esdmadrid.es/e-ese-days-2024-jornadas-de-diseno-de-la-esd/ htt
 https://mdi.esdmadrid.es/* https://esdmadrid.es/ 301
 https://mdec.esdmadrid.es/* https://esdmadrid.es/ 301
 
+/en / 301!
+/en/ / 301!
+/en/* / 301!
+
 
 /horarios-y-calendarios /noticias/horarios-y-calendarios-curso-25-26 301
 /horarios-y-calendarios/ /noticias/horarios-y-calendarios-curso-25-26 301
