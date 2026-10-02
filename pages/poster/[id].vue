@@ -20,10 +20,23 @@ const route = useRoute()
 
 const load = ref(false)
 
-const { data: pageData } = await useFetch(`${siteStore.api}/get-poster/${route.params.id}`)
+const { data: pageData, error: pageError } = await useFetch(`${siteStore.api}/get-poster/${route.params.id}`)
+
+if (pageError.value) {
+    const statusCode = pageError.value.statusCode || pageError.value.status || 500
+    throw createError({
+        statusCode,
+        statusMessage: statusCode === 404 ? 'Poster not found' : 'Unable to load poster',
+        fatal: true,
+    })
+}
+
+if (!pageData.value) {
+    throw createError({ statusCode: 404, statusMessage: 'Poster not found', fatal: true })
+}
 
 const setI18nParams = useSetI18nParams()
-const languages = pageData?.value?.slugs
+const languages = pageData.value.slugs || []
 const nuxtI18n = setI18nSlugs(languages)
 setI18nParams(nuxtI18n)
 

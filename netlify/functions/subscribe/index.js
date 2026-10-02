@@ -1,27 +1,21 @@
-const MAILCHIMP_SERVER_PREFIX = process.env.MAILCHIMP_SERVER_PREFIX
-const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
-const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
+import axios from 'axios';
+import { createHash } from 'node:crypto';
 
-
-const axios = require('axios');
-var crypto = require('crypto');
-
-const apiRoot = `https://${MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members/`;
-
-const handler = async (event) => {
+export default async (request) => {
 	try {
+		const MAILCHIMP_SERVER_PREFIX = process.env.MAILCHIMP_SERVER_PREFIX;
+		const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
+		const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
+		const apiRoot = `https://${MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members/`;
 
-		const email = event.queryStringParameters.email;
+		const email = new URL(request.url).searchParams.get('email');
 		if (!email) {
-			return {
-				statusCode: 500,
-				body: 'email query paramter required'
-			};
+			return new Response('email query paramter required', { status: 500 });
 		}
 
-		let emailhash = crypto.createHash('md5').update(email).digest('hex');
+		const emailhash = createHash('md5').update(email).digest('hex');
 
-		return axios({
+		const response = await axios({
 				method: 'put',
 				url: apiRoot + emailhash,
 				data: {
@@ -35,23 +29,10 @@ const handler = async (event) => {
 					'username': 'anythingreally',
 					'password': MAILCHIMP_API_KEY
 				}
-			}).then(res => {
-				return {
-					statusCode: 200,
-					body: JSON.stringify(res.data)
-				}
-			})
-			.catch(err => {
-				console.log('returning from here', err.response.data.detail);
-				return {
-					statusCode: 500,
-					body: JSON.stringify(err.response.data)
-				};
 			});
 
+		return Response.json(response.data);
 	} catch (error) {
-		return { statusCode: 500, body: error.toString() }
+		return Response.json(error.response?.data || { error: 'Unable to subscribe' }, { status: 500 });
 	}
 }
-
-module.exports = { handler }
